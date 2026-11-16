@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            color: #1e293b;
+        }
+        header {
+            background: #087e8b;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #0001;
+        }
+        input {
+            width: 95%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 13px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #e0f2f1;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Healthcare Management System</h1>
+        <p>Patient Information Dashboard</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Patient Records</h2>
+            <p>Demo healthcare dashboard using fictional patient data.</p>
+
+            <input type="text" id="search"
+                   placeholder="Search patients..."
+                   onkeyup="searchPatients()">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+                <tbody id="patientTable">
+                    <tr><td>P101</td><td>John Smith</td><td>35</td><td>Cardiology</td></tr>
+                    <tr><td>P102</td><td>Emily Davis</td><td>28</td><td>Neurology</td></tr>
+                    <tr><td>P103</td><td>Michael Brown</td><td>42</td><td>Orthopedics</td></tr>
+                    <tr><td>P104</td><td>Sarah Wilson</td><td>31</td><td>Dermatology</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        Healthcare DevSecOps Project | Demonstration Only
+    </footer>
+
+    <script>
+        function searchPatients() {
+            const input = document.getElementById("search").value.toLowerCase();
+            const rows = document.querySelectorAll("#patientTable tr");
+
+            rows.forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(input)
+                    ? ""
+                    : "none";
+            });
+        }
+    </script>
+</body>
+</html>
